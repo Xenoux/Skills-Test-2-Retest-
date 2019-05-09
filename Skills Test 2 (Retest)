@@ -1,0 +1,70 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	const int minimumBalance = 100;
+	int typeOfAccount;
+	double bankBalance, updatedBankBalance;
+
+	cout <<"This bank offers two types of accounts:\n";
+	cout <<"[1] Saving and\n";
+	cout <<"[2] Checking\n";
+	cout << endl;
+	cout <<"Please indicate which type your account is [1/2]: ";
+	cin >> typeOfAccount;
+
+	switch (typeOfAccount)
+	{
+	case 1:
+		cout <<"You selected [1] Savings.";
+		break;
+	case 2:
+		cout <<"You selected [2] Checking.";
+		break;
+	default:
+		cout <<"Invalid input! You must select only between the two options (1/2).";
+	}
+
+	cout << endl;
+	cout << endl;
+	cout <<"Indicate bank balance: $";
+	cin >> bankBalance;
+	cout << endl;
+	cout << endl;
+
+	if (typeOfAccount = 1)
+	{
+		if (bankBalance >= minimumBalance)
+			updatedBankBalance = (bankBalance * 0.04) + bankBalance;
+		else if (bankBalance < minimumBalance)
+		{
+			updatedBankBalance = bankBalance - 10.00;
+			cout <<"A service charge of $10.00 has been deducted from your account for not having been able to meet the minimum balance required.";
+			cout << endl;
+			cout << endl;
+		}
+	}
+	else if (typeOfAccount = 2)
+	{
+		if (bankBalance >= minimumBalance || bankBalance >= 5000 + minimumBalance)
+			updatedBankBalance = (bankBalance * 0.03) + bankBalance;
+		else if (bankBalance >= minimumBalance || bankBalance < 5000 + minimumBalance)
+			updatedBankBalance = (bankBalance * 0.05) + bankBalance;
+		else if (bankBalance < minimumBalance)
+		{
+			updatedBankBalance = bankBalance - 25.00;
+			cout <<"A service charge of $25.00 has been deducted from your account for not having been able to meet the minimum balance required.";
+			cout << endl;
+			cout << endl;
+		}
+	}
+
+	cout <<"Account Balance: $" << fixed << setprecision(2) << updatedBankBalance;
+
+		_getch();
+		return 0;
+	}
